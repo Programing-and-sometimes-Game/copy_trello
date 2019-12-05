@@ -1,0 +1,2 @@
+class GroupCheckListItemsController < ApplicationController
+end
