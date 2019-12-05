@@ -1,0 +1,2 @@
+class BoardBackgroundImage < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class BoardInvitingMail < ApplicationRecord
+end
