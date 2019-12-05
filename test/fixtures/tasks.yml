@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task_name: MyString
+  deadline_start: 2019-12-05 06:44:06
+  deadline_end: 2019-12-05 06:44:06
+
+two:
+  task_name: MyString
+  deadline_start: 2019-12-05 06:44:06
+  deadline_end: 2019-12-05 06:44:06

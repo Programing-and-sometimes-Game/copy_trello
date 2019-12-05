@@ -1,0 +1,2 @@
+class GroupInvitingMail < ApplicationRecord
+end

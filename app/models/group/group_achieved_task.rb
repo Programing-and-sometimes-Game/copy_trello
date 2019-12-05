@@ -1,0 +1,2 @@
+class GroupAchievedTask < ApplicationRecord
+end
