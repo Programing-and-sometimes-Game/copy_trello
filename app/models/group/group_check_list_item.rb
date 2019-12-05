@@ -1,0 +1,2 @@
+class GroupCheckListItem < ApplicationRecord
+end
