@@ -1,0 +1,2 @@
+class GroupTaggedTasksController < ApplicationController
+end

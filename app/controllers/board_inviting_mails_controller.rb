@@ -1,0 +1,2 @@
+class BoardInvitingMailsController < ApplicationController
+end

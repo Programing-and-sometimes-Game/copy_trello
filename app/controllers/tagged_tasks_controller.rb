@@ -1,0 +1,2 @@
+class TaggedTasksController < ApplicationController
+end

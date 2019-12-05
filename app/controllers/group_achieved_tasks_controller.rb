@@ -1,0 +1,2 @@
+class GroupAchievedTasksController < ApplicationController
+end

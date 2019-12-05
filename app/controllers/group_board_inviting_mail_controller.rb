@@ -1,0 +1,2 @@
+class GroupBoardInvitingMailController < ApplicationController
+end

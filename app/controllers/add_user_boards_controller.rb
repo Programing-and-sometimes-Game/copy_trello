@@ -1,0 +1,2 @@
+class AddUserBoardsController < ApplicationController
+end
