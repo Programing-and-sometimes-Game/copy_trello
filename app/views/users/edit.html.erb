@@ -1,2 +1,11 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<%= link_to 'ユーザー詳細に戻る', user_path(@user.id) %>
+<h1>ユーザー編集画面</h1>
+<%= form_for(@user) do |user| %>
+    <%= user.label :名前 %>
+    <%= user.text_field :name %>
+    <%= user.label :メールアドレス %>
+    <%= user.email_field :mail %>
+    <%= user.label :プロフィール写真 %>
+`   <%= user.attachment_field :profile_image %>
+    <%= user.submit '保存' %>
+<% end %>

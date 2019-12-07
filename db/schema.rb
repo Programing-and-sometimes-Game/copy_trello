@@ -126,7 +126,6 @@ ActiveRecord::Schema.define(version: 2019_12_05_075613) do
 
   create_table "group_members", force: :cascade do |t|
     t.boolean "activation", default: false
-    t.boolean "group_owner_check", default: false
     t.integer "user_id"
     t.integer "group_id"
     t.datetime "created_at", null: false
@@ -165,6 +164,7 @@ ActiveRecord::Schema.define(version: 2019_12_05_075613) do
     t.string "group_name"
     t.text "description"
     t.text "group_image"
+    t.integer "owner_user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

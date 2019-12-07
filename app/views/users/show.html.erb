@@ -1,2 +1,14 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>ユーザー詳細</h1>
+<%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: 'no_image.jpg', size: '100x100' %>
+<%= @user.name %>
+
+<%= link_to 'ユーザー編集', edit_user_path(@user.id) %>
+
+<%= link_to 'グループ作成', new_group_path %>
+
+
+<h2>参加グループ一覧</h2>
+<% @groups.each do |f| %>
+    <%= attachment_image_tag f, :group_image, format: 'jpeg', fallback: 'no_image.jpg', size: '100x100' %>
+    <%= f.group_name %>
+<% end %>
