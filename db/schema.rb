@@ -49,10 +49,8 @@ ActiveRecord::Schema.define(version: 2019_12_05_075613) do
 
   create_table "boards", force: :cascade do |t|
     t.string "board_name"
-    t.integer "background_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["background_image_id"], name: "index_boards_on_background_image_id"
   end
 
   create_table "check_list_items", force: :cascade do |t|
@@ -83,10 +81,8 @@ ActiveRecord::Schema.define(version: 2019_12_05_075613) do
   create_table "group_boards", force: :cascade do |t|
     t.string "group_board_name"
     t.integer "group_id"
-    t.integer "background_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["background_image_id"], name: "index_group_boards_on_background_image_id"
     t.index ["group_id"], name: "index_group_boards_on_group_id"
   end
 
