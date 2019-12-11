@@ -1,14 +1,13 @@
 <h1>ユーザー詳細</h1>
-<%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: 'no_image.jpg', size: '100x100' %>
-<%= @user.name %>
+<%= @user.name %><br>
 
-<%= link_to 'ユーザー編集', edit_user_path(@user.id) %>
+<%= link_to 'ユーザー編集', edit_user_path(@current_user.id) %><br>
 
-<%= link_to 'グループ作成', new_group_path %>
+<%= link_to 'グループ作成', new_user_group_path(@current_user.id) %><br>
 
-
-<h2>参加グループ一覧</h2>
+<%= @current_user.name %><br>
+<%= link_to 'ログアウト', logout_path, method: :delete %><br>
+<h2>参加チーム一覧</h2>
 <% @groups.each do |f| %>
-    <%= attachment_image_tag f, :group_image, format: 'jpeg', fallback: 'no_image.jpg', size: '100x100' %>
     <%= f.group_name %>
 <% end %>

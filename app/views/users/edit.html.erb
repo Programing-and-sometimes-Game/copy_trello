@@ -1,11 +1,10 @@
-<%= link_to 'ユーザー詳細に戻る', user_path(@user.id) %>
+<%= link_to 'ユーザー詳細に戻る', user_path(@current_user.id) %>
 <h1>ユーザー編集画面</h1>
-<%= form_for(@user) do |user| %>
+<%= form_for(@current_user) do |user| %>
     <%= user.label :名前 %>
     <%= user.text_field :name %>
     <%= user.label :メールアドレス %>
     <%= user.email_field :mail %>
     <%= user.label :プロフィール写真 %>
-`   <%= user.attachment_field :profile_image %>
     <%= user.submit '保存' %>
 <% end %>
