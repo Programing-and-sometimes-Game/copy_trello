@@ -1,2 +1,14 @@
-<h1>Boards#show</h1>
-<p>Find me in app/views/boards/show.html.erb</p>
+board_name:<%= @board.board_name %>
+
+<details>
+	<summary>リスト作成</summary>
+	<%= form_for(@list, url: user_board_lists_path(@user.id, @board.id)) do |f| %>
+	<%= f.label :list_name %>
+	<%= f.text_field :list_name %>
+		<%= f.submit "入力" %>
+	<% end %>
+</details>
+
+<% @lists.each do |list| %>
+	<%= list.list_name %><br>
+<% end %>
