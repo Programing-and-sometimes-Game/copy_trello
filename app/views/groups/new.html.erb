@@ -1,2 +1,10 @@
-<h1>Groups#new</h1>
-<p>Find me in app/views/groups/new.html.erb</p>
+<%= link_to 'ユーザー詳細に戻る', user_path(@user) %>
+<h1>グループ作成</h1>
+<%= form_for(@group, url: user_groups_path(@user)) do |f| %>
+    <label>グループ名</label>
+    <%= f.text_field :group_name %><br>
+    <label>説明</label>
+    <%= f.text_field :description %><br>
+    <%= f.file_field :group_image %>
+    <%= f.submit '作成' %>
+<% end %>

@@ -1,4 +1,16 @@
-<%= @current_user.name %>
-<%= link_to 'ログアウト', logout_path, method: :delete %>
+<h1>ユーザー詳細</h1>
+<%= @user.name %><br>
 
+<%= link_to 'ユーザー編集', edit_user_path(@current_user.id) %><br>
 <%= link_to 'ボード作成へ', new_user_board_path(@user.id) %>
+
+<%= link_to 'グループ作成', new_user_group_path(@current_user.id) %><br>
+
+<%= @current_user.name %><br>
+<%= link_to 'ログアウト', logout_path, method: :delete %><br>
+<h2>参加チーム一覧</h2>
+<% @groups.each do |f| %>
+    <%= f.group_name %>
+<% end %>
+
+
