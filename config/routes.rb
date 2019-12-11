@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   get '/login', to:"sessions#new"
   post '/login', to:"sessions#create"
   delete'/logout', to:'sessions#destroy'
-  resources :users, only: [:new, :create, :edit, :update, :show]
-  resources :boards, only: [:create, :destroy, :update, :show]
-  resources :lists, only: [:create, :destroy, :update]
+  resources :users, only: [:new, :create, :edit, :update, :show] do
+    resources :boards, only: [:create, :destroy, :update, :show, :new] do
+      resources :lists, only: [:create, :destroy, :update]
+    end
+  end
   resources :tasks, only: [:create, :destroy, :update]
   resources :check_lists, only: [:create, :destroy, :update]
   resources :check_list_items, only: [:create, :destroy, :update]

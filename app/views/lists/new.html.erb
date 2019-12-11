@@ -1,0 +1,5 @@
+<%= form_for(@list, url: user_board_lists_path(@user.id, @board.id)) do |f| %>
+	<%= f.label :list_name %>
+	<%= f.text_field :list_name %>
+	<%= f.submit "入力" %>
+<% end %>

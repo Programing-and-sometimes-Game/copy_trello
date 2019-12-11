@@ -1,2 +1,4 @@
 <%= @current_user.name %>
 <%= link_to 'ログアウト', logout_path, method: :delete %>
+
+<%= link_to 'ボード作成へ', new_user_board_path(@user.id) %>
