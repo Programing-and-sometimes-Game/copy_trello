@@ -8,8 +8,16 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <header>
+      <% if logged_in? %>
+        <%= link_to "ログアウト", logout_path, method: :delete %>
+        <%= link_to "マイページ", user_path(current_user.id) %>
+      <% else %>
+        <%= link_to "ユーザ新規登録", signup_path %>
+        <%= link_to "ユーザログイン", login_path %>
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>

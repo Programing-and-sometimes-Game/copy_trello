@@ -13,20 +13,28 @@ class BoardsController < ApplicationController
   		redirect_to user_board_path(@user, @board)
   	else
   	    render 'new'
-  	end
+    end
   end
+
   def show
   	@board = Board.find(params[:id])
     @user = User.find(session[:user_id])
     @list =List.new
   	@lists = @board.lists.all
+    @task =Task.new
   end
 
   private
+
   def board_params
      params.require(:board).permit(:board_name)
   end
+
   def list_params
      params.require(:list).permit(:list_name)
+  end
+
+  def task_params
+     parama.require(:task).permit(:task_name, :description)
   end
 end

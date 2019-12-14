@@ -1,7 +1,7 @@
 class GroupBoardsController < ApplicationController
   before_action :set_params, only: [:show, :new, :create]
   def show
-    @board = GroupBoard.find(params[:id])
+    @board = @group.group_boards.find(params[:id])
     @list  = @board.group_lists.new
     @lists = @board.group_lists.all
     @task  = @list.group_tasks.new

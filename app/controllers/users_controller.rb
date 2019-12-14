@@ -26,6 +26,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(session[:user_id])
+    @boards = @user.boards.all
     @groups = Group.where(owner_user_id: @current_user)
     begin
       @user = User.find(params[:id])

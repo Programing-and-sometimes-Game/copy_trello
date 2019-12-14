@@ -4,7 +4,7 @@
 <hr>
 <% unless @boards.empty? %>
     <% @boards.each do |f| %>
-        <%= link_to user_group_group_board_path(@user, @group) do %>
+        <%= link_to user_group_group_board_path(@user, @group, f.id) do %>
             <%= f.group_board_name %>
         <% end %>
     <% end %>

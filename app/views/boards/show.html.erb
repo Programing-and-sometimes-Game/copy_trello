@@ -9,6 +9,20 @@ board_name:<%= @board.board_name %>
 	<% end %>
 </details>
 
+
 <% @lists.each do |list| %>
-	<%= list.list_name %><br>
+	<strong><%= list.list_name %></strong><br>
+	<hr>
+	<% list.tasks.each do |task| %>
+		<%= task.task_name %><br>
+	<% end %>
+	<details>
+		<summary>タスク作成</summary>
+		<%= form_for(@task, url: user_board_list_tasks_path(@user.id, @board.id, list.id)) do |f| %>
+		<%= f.label :task_name %>
+		<%= f.text_field :task_name %>
+			<%= f.submit "入力" %>
+		<% end %>
+	</details>
+	<hr>
 <% end %>
