@@ -1,5 +1,8 @@
 class GroupsController < ApplicationController
   def show
+    @user = User.find(params[:user_id])
+    @group = Group.find(params[:id])
+    @boards = @group.group_boards.all
   end
 
   def new

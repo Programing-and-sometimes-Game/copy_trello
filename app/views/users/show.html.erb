@@ -6,11 +6,12 @@
 
 <%= link_to 'グループ作成', new_user_group_path(@current_user.id) %><br>
 
-<%= @current_user.name %><br>
 <%= link_to 'ログアウト', logout_path, method: :delete %><br>
-<h2>参加チーム一覧</h2>
+<h2>参加グループ一覧</h2>
 <% @groups.each do |f| %>
-    <%= f.group_name %>
+    <%= link_to user_group_path(@user, f.id) do %>
+        <%= f.group_name %>
+    <% end %>
 <% end %>
 
 

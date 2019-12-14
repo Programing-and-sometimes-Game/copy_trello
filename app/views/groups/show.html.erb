@@ -1,0 +1,15 @@
+<h1><%= @group.group_name %></h1>
+
+<h2>ボード一覧</h2>
+<hr>
+<% unless @boards.empty? %>
+    <% @boards.each do |f| %>
+        <%= link_to user_group_group_board_path(@user, @group) do %>
+            <%= f.group_board_name %>
+        <% end %>
+    <% end %>
+<% else %>
+    <p>ボードを作成してください！！</p>
+<% end %>
+<hr>
+<%= link_to 'ボードを作成', new_user_group_group_board_path(@user, @group) %>
