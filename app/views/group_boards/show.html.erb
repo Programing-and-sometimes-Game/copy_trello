@@ -1,2 +1,28 @@
-<h1>GroupBoards#show</h1>
-<p>Find me in app/views/group_boards/show.html.erb</p>
+<h1>グループボード詳細ページ</h1>
+<p>ボード名: <%= @board.group_board_name %></p>
+<hr>
+
+<details>
+	<summary>リスト作成</summary>
+	<%= form_for(@list, url: user_group_group_board_group_lists_path(@user,@group, @board)) do |f| %>
+	<label>リスト名</label>
+	<%= f.text_field :group_list_name %>
+		<%= f.submit "入力" %>
+	<% end %>
+</details>
+<hr>
+
+<% @lists.each do |list| %>
+    <%= list.group_list_name %><br>
+    <% list.group_tasks.each do |task| %>
+        <%= task.task_name %><br>
+    <% end %>
+    <details>
+        <summary>タスク作成</summary>
+        <%= form_for(@task, url: user_group_group_board_group_list_group_tasks_path(@user, @group, @board, list)) do |t| %>
+            <%= t.text_field :task_name %>
+            <%= t.submit '作成' %>
+        <% end %>
+    </details>
+    <hr>
+<% end %>

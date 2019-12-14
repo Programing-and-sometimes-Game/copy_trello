@@ -1,0 +1,7 @@
+<h1>グループのボード作成</h1>
+
+<%= form_for(@group_board, url: user_group_group_boards_path(@user, @group)) do |f| %>
+    <label>ボード名</label>
+    <%= f.text_field :group_board_name %>
+    <%= f.submit '作成' %>
+<% end %>

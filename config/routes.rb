@@ -6,9 +6,15 @@ Rails.application.routes.draw do
   get '/login', to:"sessions#new"
   post '/login', to:"sessions#create"
   delete'/logout', to:'sessions#destroy'
-
+  
   resources :users, only: [:new, :create, :edit, :update, :show] do
-    resources :groups, only: [:show, :edit, :new, :create, :destroy]
+    resources :groups, only: [:show, :edit, :new, :create, :destroy] do
+      resources :group_boards, only: [:create, :destroy, :update, :show, :new] do
+        resources :group_lists, only: [:create, :destroy, :update] do
+          resources :group_tasks, only: [:create, :destroy, :update]
+        end
+      end
+    end
     resources :boards, only: [:create, :destroy, :update, :show, :new] do
       resources :lists, only: [:create, :destroy, :update]
     end
@@ -22,9 +28,6 @@ Rails.application.routes.draw do
   resources :tagged_tasks, only: [:create, :destroy]
 
   resources :group_members, only: [:create, :destroy, :index]
-  resources :group_boards, only: [:create, :destroy, :update, :show]
-  resources :group_lists, only: [:create, :destroy, :update]
-  resources :group_tasks, only: [:create, :destroy, :update]
   resources :group_check_lists, only: [:create, :destroy, :update]
   resources :group_check_list_items, only: [:create, :destroy, :update]
   resources :group_tagged_tasks, only: [:create, :destroy]
