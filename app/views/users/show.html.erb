@@ -7,6 +7,7 @@
 <%= link_to 'グループ作成', new_user_group_path(@current_user.id) %><br>
 
 <%= link_to 'ログアウト', logout_path, method: :delete %><br>
+
 <h2>参加グループ一覧</h2>
 <% @groups.each do |f| %>
     <%= link_to user_group_path(@user, f.id) do %>
@@ -14,4 +15,10 @@
     <% end %>
 <% end %>
 
+<h2>ボード一覧</h2>
+<% @boards.each do |f| %>
+	<%= link_to user_board_path(@user.id, f.id) do %>
+    	<%= f.board_name %><br>
+    <% end %>
+<% end %>
 

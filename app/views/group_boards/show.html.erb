@@ -13,7 +13,7 @@
 <hr>
 
 <% @lists.each do |list| %>
-    <%= list.group_list_name %><br>
+    <strong><%= list.group_list_name %></strong><br>
     <% list.group_tasks.each do |task| %>
         <%= task.task_name %><br>
     <% end %>
