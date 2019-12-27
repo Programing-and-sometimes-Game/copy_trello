@@ -1,24 +1,32 @@
-<h1>ユーザー詳細</h1>
-<%= @user.name %><br>
-
-<%= link_to 'ユーザー編集', edit_user_path(@current_user.id) %><br>
-<%= link_to 'ボード作成へ', new_user_board_path(@user.id) %>
-
-<%= link_to 'グループ作成', new_user_group_path(@current_user.id) %><br>
-
-<%= link_to 'ログアウト', logout_path, method: :delete %><br>
-
-<h2>参加グループ一覧</h2>
-<% @groups.each do |f| %>
-    <%= link_to user_group_path(@user, f.id) do %>
-        <%= f.group_name %>
-    <% end %>
-<% end %>
-
-<h2>ボード一覧</h2>
-<% @boards.each do |f| %>
-	<%= link_to user_board_path(@user.id, f.id) do %>
-    	<%= f.board_name %><br>
-    <% end %>
-<% end %>
-
+<div class="home-container">
+	<div class ="left-sidebar">
+		<nav class="left-sidebar-container">
+		  <ul class="left-sidebar-menu">
+		    <li class ="left-sidebar-link"><i class="fas fa-user"></i><%= link_to 'ユーザページ編集', edit_user_path(@current_user.id) %></li>
+		    <li class ="left-sidebar-link"><i class="fas fa-users"></i><%= link_to 'グループを作成', new_user_group_path(@current_user.id) %></li>
+		  </ul>
+		<div class ="group-sidebar">グループ一覧</div>
+		  <ul class ="group-sidebar-container">
+			<% @groups.each do |f| %>
+		      <%= link_to user_group_path(@user, f.id) do %>
+	            <li class ="group-link"><i class="fas fa-users"></i><%= f.group_name %></li>
+		      <% end %>
+			<% end %>
+		  </ul>
+		</nav>
+	</div>
+	<div class ="all-boards">
+	  <div class ="content-all-boards">
+	  	<h3 class="board-header-name">ボード一覧</h3>
+	  	  <ul class="board-list">
+			<% @boards.each do |f| %>
+				<%= link_to user_board_path(@user.id, f.id) do %>
+			      <li class="board-list-link"><%= f.board_name %></li>
+			      <li class="board-list-link"><%= attachment_image_tag f, :board_image, size: "200x150", class: "back", format: 'jpeg' ,fallback: "no_image.jpg"%></li>
+			    <% end %>
+			<% end %>
+			　　	　<li class ="left-sidebar-link"><i class="fas fa-chalkboard"></i><%= link_to '新しいボードを作成', new_user_board_path(@user.id) %></li>
+		  </ul>
+	  </div>
+	</div>
+</div>

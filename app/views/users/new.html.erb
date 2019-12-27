@@ -1,12 +1,14 @@
-<h1>Users#new</h1>
-<%= form_for(@user, url: signup_path) do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
-	<%= f.label :mail %>
-	<%= f.email_field :mail %>
-	<%= f.label :password %>
-	<%= f.password_field :password %>
-	<%= f.submit "ログイン" %>
-<% end %>
+<div class="login">
+	<h1>Signup to Trello</h1>
+	<%= form_for(@user, url: signup_path) do |f| %>
+		<p><%= f.label :name %></p>
+		<p><%= f.text_field :name %></p>
+		<p><%= f.label :mail %></p>
+		<p><%= f.email_field :mail %></p>
+		<p><%= f.label :password %></p>
+		<p><%= f.password_field :password %></p>
+		<p><%= f.submit "ログイン" %></p>
+		<p><%= link_to 'Loginページ', login_path %></p>
+	<% end %>
+</div>
 
-<%= link_to 'Loginページ', login_path %>
