@@ -1,12 +1,13 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<div class="login">
+	<h1>Login to Trello</h1>
+	<%= form_for(:session, url:login_path) do |f| %>
+		<p><%= f.label :mail %></p>
+		<p><%= f.email_field :mail %></p>
+		<p><%= f.label :password %></p>
+		<p><%= f.password_field :password %></p>
+		<p><%= f.submit "login" %></p>
+		<p><%= link_to 'sign upページ', signup_path %></p>
+	<% end %>
+</div>
 
-<%= form_for(:session, url:login_path) do |f| %>
-	<%= f.label :mail %>
-	<%= f.email_field :mail %>
-	<%= f.label :password %>
-	<%= f.password_field :password %>
-	<%= f.submit "ユーザ登録" %>
-<% end %>
 
-<%= link_to 'sign upページ', signup_path %>

@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @group = Group.find(params[:id])
-    @boards = Group_board.where(group_id; @group)
+    @boards = GroupBoard.where(group_id: @group)
   end
 
   def new

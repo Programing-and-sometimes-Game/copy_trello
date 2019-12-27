@@ -4,19 +4,25 @@
     <title>Trello</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
   <body>
-    <header>
-      <% if logged_in? %>
-        <%= link_to "ログアウト", logout_path, method: :delete %>
-        <%= link_to "マイページ", user_path(current_user.id) %>
-      <% else %>
-        <%= link_to "ユーザ新規登録", signup_path %>
-        <%= link_to "ユーザログイン", login_path %>
-      <% end %>
+    <header class="header">
+      <nav class="nav">
+        <ul class="header_menu"
+          <% if logged_in? %>
+            <li class ="nav-link"><%= link_to "ログアウト", logout_path, method: :delete %></li>
+            <li class="header_menu_title">Trello</li>
+            <li class ="nav-link"><%= link_to "マイページ", user_path(current_user.id) %></li>
+          <% else %>
+            <li class ="nav-link"><%= link_to "ユーザ新規登録", signup_path %></li>
+            <li class="header_menu_title">Trello</li>
+            <li class ="nav-link"><%= link_to "ユーザログイン", login_path %></li>
+          <% end %>
+        </ul>
+      </nav>
     </header>
     <%= yield %>
   </body>

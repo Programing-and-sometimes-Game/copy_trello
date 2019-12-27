@@ -1,28 +1,26 @@
 board_name:<%= @board.board_name %>
-
-<details>
-	<summary>リスト作成</summary>
-	<%= form_for(@list, url: user_board_lists_path(@user.id, @board.id)) do |f| %>
-	<%= f.label :list_name %>
-	<%= f.text_field :list_name %>
-		<%= f.submit "入力" %>
-	<% end %>
-</details>
-
-
-<% @lists.each do |list| %>
-	<strong><%= list.list_name %></strong><br>
-	<hr>
-	<% list.tasks.each do |task| %>
-		<%= task.task_name %><br>
-	<% end %>
+	<%= attachment_image_tag @board, :board_image, size: "200x150", class: "back", format: 'jpeg' ,fallback: "no_image.jpg"%>
 	<details>
-		<summary>タスク作成</summary>
-		<%= form_for(@task, url: user_board_list_tasks_path(@user.id, @board.id, list.id)) do |f| %>
-		<%= f.label :task_name %>
-		<%= f.text_field :task_name %>
+		<summary>リスト作成</summary>
+		<%= form_for(@list, url: user_board_lists_path(@user.id, @board.id)) do |f| %>
+		<%= f.label :list_name %>
+		<%= f.text_field :list_name %>
 			<%= f.submit "入力" %>
 		<% end %>
 	</details>
-	<hr>
-<% end %>
+	<% @lists.each do |list| %>
+		<strong><%= list.list_name %></strong><br>
+		<hr>
+		<% list.tasks.each do |task| %>
+			<%= task.task_name %><br>
+		<% end %>
+		<details>
+			<summary>タスク作成</summary>
+			<%= form_for(@task, url: user_board_list_tasks_path(@user.id, @board.id, list.id)) do |f| %>
+			<%= f.label :task_name %>
+			<%= f.text_field :task_name %>
+				<%= f.submit "入力" %>
+			<% end %>
+		</details>
+		<hr>
+	<% end %>
